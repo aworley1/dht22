@@ -12,12 +12,19 @@ fun main() {
 
     val output = gpio.provisionDigitalOutputPin(DHT_22)
 
+    println("setting high")
+    output.high()
+    Thread.sleep(100)
+    println("setting low")
     output.low()
-    Thread.sleep(18)
+    Thread.sleep(20)
+    println("setting high")
     output.high()
     gpio.unprovisionPin(output)
 
     val input = gpio.provisionDigitalInputPin(DHT_22)
+
+    println("Input starts off ${input.state}")
 
     input.addListener(
         GpioPinListenerDigital {
