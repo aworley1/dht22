@@ -13,6 +13,7 @@ fun main() {
     output.low()
     Thread.sleep(18)
     output.high()
+    output.unexport()
 
     val input = gpio.provisionDigitalInputPin(DHT_22)
 
